@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    
     <title>OTTINGER Sochi — Профессиональные отделочные материалы</title>
+    <meta name="description" content="Инновационная полимерная система отделки стен с 10-микронным фиброволокном. Сокращает малярный пирог до 3 слоев без стеклохолста. Склад и малярный цех в Сочи.">
+    
+    <!-- МЕТАТЕГИ ДЛЯ КРАСИВОГО ПРЕВЬЮ В TELEGRAM, WHATSAPP, VK -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ottinger-sochi.github.io/">
+    <meta property="og:title" content="OTTINGER Sochi — Инновационная полимерная система отделки">
+    <meta property="og:description" content="Малярные работы без брака и стеклохолста с 10-микронной микрофиброй. Сокращает малярный пирог до 3 слоев, исключает трещины и сколы. Склад и цех в Сочи.">
+    <meta property="og:image" content="https://ottinger-sochi.github.io/preview.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="OTTINGER Sochi">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OTTINGER Sochi — Инновационная полимерная система отделки">
+    <meta name="twitter:description" content="Малярные работы без брака и стеклохолста с 10-микронной микрофиброй. Сокращает малярный пирог до 3 слоев, исключает трещины и сколы.">
+    <meta name="twitter:image" content="https://ottinger-sochi.github.io/preview.png">
+
     <!-- Подключение фирменного шрифта Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,7 +162,6 @@
             padding-left: 6px;
         }
 
-        /* Навигация на ПК */
         .desktop-nav {
             display: none;
             align-items: center;
@@ -212,7 +230,6 @@
             flex-shrink: 0;
         }
 
-        /* Кнопка бургера */
         .burger-btn {
             width: 38px;
             height: 38px;
@@ -241,7 +258,7 @@
             border-radius: 2px;
         }
 
-        /* БОКОВАЯ ШТОРКА */
+        /* БОКОВАЯ ШТОРКА (МОБИЛЬНАЯ) */
         .mobile-drawer-backdrop {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -431,14 +448,14 @@
             transform: scale(0.98);
         }
 
-        /* БЛОК 1: HERO */
+        /* БЛОК 1: HERO С ИНТЕГРИРОВАННОЙ ВИДЕОКАРУСЕЛЬЮ */
         .hero {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             padding: 35px 15px 50px 15px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         h1 {
@@ -450,26 +467,168 @@
             text-transform: uppercase;
             max-width: 900px;
         }
-        .hero-media {
+        
+        /* Карусель видео прямо в первом блоке */
+        .hero-video-wrapper {
+            position: relative;
             width: 100%;
-            max-width: 600px;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #f1f1f1;
-            aspect-ratio: 16 / 9;
-            border: 1px solid #e0e0e0;
+            max-width: 1100px;
             margin: 0 auto 25px auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .hero-media img {
+        .video-carousel {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 10px 5px 20px 5px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #ff5722 #f0f0f0;
+        }
+        .video-carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+        .video-carousel::-webkit-scrollbar-thumb {
+            background-color: #ff5722;
+            border-radius: 3px;
+        }
+        .video-carousel::-webkit-scrollbar-track {
+            background-color: #f0f0f0;
+        }
+
+        .video-card {
+            flex: 0 0 240px;
+            height: 380px;
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            position: relative;
+            cursor: pointer;
+            scroll-snap-align: start;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 16px;
+        }
+        .video-card:hover {
+            border-color: #ff5722;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 87, 34, 0.25);
+        }
+        
+        .video-card-thumb {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: 1;
+            pointer-events: none;
+            background-color: #1a1a1a;
+            transition: transform 0.35s ease;
+        }
+        .video-card:hover .video-card-thumb {
+            transform: scale(1.06);
         }
         
+        .video-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.85) 100%);
+            z-index: 2;
+        }
+
+        .video-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+        }
+        .video-badge {
+            background-color: rgba(0, 0, 0, 0.75);
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            backdrop-filter: blur(4px);
+            letter-spacing: 0.5px;
+        }
+        .badge-hit {
+            background-color: #ff5722;
+            color: #ffffff;
+        }
+        .video-play-icon {
+            width: 54px;
+            height: 54px;
+            background-color: #ff5722;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 1.3rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            transition: transform 0.25s ease, background-color 0.25s ease;
+        }
+        .video-card:hover .video-play-icon {
+            transform: translate(-50%, -50%) scale(1.15);
+            background-color: #e64a19;
+        }
+        .video-bottom-label {
+            position: relative;
+            z-index: 3;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+        }
+
+        .carousel-arrow {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #111111;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: all 0.2s ease;
+            line-height: 1;
+            user-select: none;
+        }
+        .carousel-arrow:hover {
+            background-color: #ff5722;
+            color: #ffffff;
+            border-color: #ff5722;
+        }
+        .arrow-left { left: -22px; }
+        .arrow-right { right: -22px; }
+
         /* Увеличенный подзаголовок */
         .hero-subhead {
             font-size: 1.05rem;
@@ -486,7 +645,7 @@
             font-weight: 900;
         }
 
-        /* БЛОК 2: ИННОВАЦИОННАЯ СИСТЕМА */
+        /* БЛОК 2: ИННОВАЦИОННАЯ СИСТЕМА (4 МАТЕРИАЛА) */
         .products-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -862,172 +1021,6 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 7: ВИДЕО-ДОКАЗАТЕЛЬСТВА */
-        .video-section {
-            background-color: #ffffff;
-            padding: 80px 20px;
-            border-top: 1px solid #eaeaea;
-            position: relative;
-        }
-        .video-carousel-wrapper {
-            position: relative;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .video-carousel {
-            display: flex;
-            gap: 16px;
-            overflow-x: auto;
-            padding: 15px 5px 25px 5px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: #ff5722 #f0f0f0;
-        }
-        .video-carousel::-webkit-scrollbar {
-            height: 6px;
-        }
-        .video-carousel::-webkit-scrollbar-thumb {
-            background-color: #ff5722;
-            border-radius: 3px;
-        }
-        .video-carousel::-webkit-scrollbar-track {
-            background-color: #f0f0f0;
-        }
-
-        .video-card {
-            flex: 0 0 240px;
-            height: 380px;
-            background-color: #1f1f1f;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #e0e0e0;
-            position: relative;
-            cursor: pointer;
-            scroll-snap-align: start;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 16px;
-        }
-        .video-card:hover {
-            border-color: #ff5722;
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(255, 87, 34, 0.25);
-        }
-        
-        .video-card-thumb {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            pointer-events: none;
-            background-color: #1a1a1a;
-            transition: transform 0.35s ease;
-        }
-        .video-card:hover .video-card-thumb {
-            transform: scale(1.06);
-        }
-        
-        .video-card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.85) 100%);
-            z-index: 2;
-        }
-
-        .video-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 3;
-        }
-        .video-badge {
-            background-color: rgba(0, 0, 0, 0.75);
-            color: #ffffff;
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            backdrop-filter: blur(4px);
-            letter-spacing: 0.5px;
-        }
-        .badge-hit {
-            background-color: #ff5722;
-            color: #ffffff;
-        }
-        .video-play-icon {
-            width: 54px;
-            height: 54px;
-            background-color: #ff5722;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            font-size: 1.3rem;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-            transition: transform 0.25s ease, background-color 0.25s ease;
-        }
-        .video-card:hover .video-play-icon {
-            transform: translate(-50%, -50%) scale(1.15);
-            background-color: #e64a19;
-        }
-        .video-bottom-label {
-            position: relative;
-            z-index: 3;
-            color: #ffffff;
-            font-size: 0.85rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
-        }
-
-        .carousel-arrow {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #111111;
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 10;
-            transition: all 0.2s ease;
-            line-height: 1;
-            user-select: none;
-        }
-        .carousel-arrow:hover {
-            background-color: #ff5722;
-            color: #ffffff;
-            border-color: #ff5722;
-        }
-        .arrow-left { left: -22px; }
-        .arrow-right { right: -22px; }
-
         /* МОДАЛЬНЫЙ СТОРИС-ПЛЕЕР ДЛЯ ВИДЕО */
         .video-modal {
             display: none;
@@ -1195,7 +1188,7 @@
             font-weight: 800;
         }
 
-        /* БЛОК 8: ЛАЙФХАК ПО ШЛИФОВКЕ */
+        /* БЛОК 7: ЛАЙФХАК ПО ШЛИФОВКЕ */
         .myth-section {
             background-color: #f8f8f8;
             padding: 60px 20px;
@@ -1246,7 +1239,7 @@
             font-size: 0.75rem;
         }
 
-        /* БЛОК 9: РОССИЙСКОЕ ПРОИЗВОДСТВО */
+        /* БЛОК 8: РОССИЙСКОЕ ПРОИЗВОДСТВО */
         .factory-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -1277,7 +1270,7 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 10: ЦЕНООБРАЗОВАНИЕ И ЭКОНОМИКА */
+        /* БЛОК 9: ЦЕНООБРАЗОВАНИЕ И ЭКОНОМИКА */
         .metrics-section {
             background-color: #f8f8f8;
             padding: 80px 20px;
@@ -1310,7 +1303,7 @@
         }
         .metric-label strong { color: #111111; }
 
-        /* БЛОК 11: ПРИМЕРЫ РАБОТ (С КЛИКАБЕЛЬНЫМ ЗУМОМ) */
+        /* БЛОК 10: ПРИМЕРЫ РАБОТ */
         .cases-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -1380,7 +1373,7 @@
             line-height: 1.45;
         }
 
-        /* ПОЛНОЭКРАННЫЙ ЛАЙТБОКС С МИКРО-ЗУМОМ (PINCH-TO-ZOOM) */
+        /* ПОЛНОЭКРАННЫЙ ЛАЙТБОКС С PINCH-TO-ZOOM */
         .photo-modal {
             display: none;
             position: fixed;
@@ -1391,7 +1384,7 @@
             justify-content: center;
             align-items: center;
             padding: 10px;
-            touch-action: none; /* Захват всех жестов зума */
+            touch-action: none;
         }
         .photo-modal.active {
             display: flex;
@@ -1537,7 +1530,7 @@
             border-left: 1px solid #444;
         }
 
-        /* БЛОК 12: ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ */
+        /* БЛОК 11: ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ */
         .workshop-section {
             background-color: #111111;
             color: #ffffff;
@@ -1620,7 +1613,7 @@
             color: #ffffff;
         }
 
-        /* БЛОК 13: ОТЗЫВЫ */
+        /* БЛОК 12: ОТЗЫВЫ */
         .reviews-section {
             background-color: #f8f8f8;
             padding: 90px 20px;
@@ -1693,7 +1686,7 @@
             font-weight: 900;
         }
 
-        /* БЛОК 14: CTA */
+        /* БЛОК 13: CTA */
         .cta-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -1718,7 +1711,7 @@
             line-height: 1.5;
         }
 
-        /* БЛОК 15: FOOTER */
+        /* БЛОК 14: FOOTER */
         footer {
             background-color: #111111;
             color: #ffffff;
@@ -1877,10 +1870,10 @@
 
             <!-- Навигация на ПК -->
             <nav class="desktop-nav">
+                <a href="#top">Видео-тесты</a>
                 <a href="#system">Инновация</a>
                 <a href="#pie">Сравнение</a>
                 <a href="#process">Технология</a>
-                <a href="#video-gallery">Видео-тесты</a>
                 <a href="#cases">Объекты</a>
                 <a href="#workshop">Малярный цех</a>
                 <a href="#reviews">Отзывы</a>
@@ -1909,10 +1902,10 @@
                 <button class="drawer-close-btn" onclick="closeDrawer()" aria-label="Закрыть">&times;</button>
             </div>
             <ul class="drawer-links">
-                <li><a href="#system" onclick="closeDrawer()"><span>01</span> Инновация</a></li>
-                <li><a href="#pie" onclick="closeDrawer()"><span>02</span> Сравнение пирога</a></li>
-                <li><a href="#process" onclick="closeDrawer()"><span>03</span> Процесс нанесения</a></li>
-                <li><a href="#video-gallery" onclick="closeDrawer()"><span>04</span> Видео-тесты</a></li>
+                <li><a href="#top" onclick="closeDrawer()"><span>01</span> Видео-тесты</a></li>
+                <li><a href="#system" onclick="closeDrawer()"><span>02</span> Инновация</a></li>
+                <li><a href="#pie" onclick="closeDrawer()"><span>03</span> Сравнение пирога</a></li>
+                <li><a href="#process" onclick="closeDrawer()"><span>04</span> Процесс нанесения</a></li>
                 <li><a href="#cases" onclick="closeDrawer()"><span>05</span> Реальные объекты</a></li>
                 <li><a href="#workshop" onclick="closeDrawer()"><span>06</span> Малярный цех</a></li>
                 <li><a href="#reviews" onclick="closeDrawer()"><span>07</span> Отзывы мастеров</a></li>
@@ -1924,7 +1917,7 @@
         </div>
     </aside>
 
-    <!-- БЛОК 1: HERO (ПЕРВЫЙ ЭКРАН) -->
+    <!-- БЛОК 1: HERO (С ВИДЕОКАРУСЕЛЬЮ ВМЕСТО ГИФКИ) -->
     <main class="hero" id="top">
         <h1>
             КАК НАВСЕГДА ИЗБАВИТЬ <br>
@@ -1932,8 +1925,11 @@
             ОТ <span class="accent-color">БРАКА И ПЕРЕДЕЛОК</span>
         </h1>
 
-        <div class="hero-media">
-            <img src="ottinger-demo.gif" alt="Демонстрация нанесения OTTINGER" loading="eager" onerror="this.onerror=null; this.parentElement.innerHTML='<span style=\'color:#999;font-weight:800;text-transform:uppercase;\'>OTTINGER DEMO</span>';">
+        <!-- ВИДЕОКАРУСЕЛЬ В ПЕРВОМ БЛОКЕ -->
+        <div class="hero-video-wrapper">
+            <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
+            <div class="video-carousel" id="videoCarousel"></div>
+            <button class="carousel-arrow arrow-right" onclick="scrollCarousel(1)">&#8250;</button>
         </div>
 
         <p class="hero-subhead">
@@ -1942,6 +1938,37 @@
 
         <a href="#system" class="btn btn-primary">Изучить систему ↓</a>
     </main>
+
+    <!-- МОДАЛЬНЫЙ СТОРИС-ПЛЕЕР ДЛЯ ВИДЕО -->
+    <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+        <div class="video-modal-wrapper" onclick="event.stopPropagation()">
+            
+            <button class="modal-nav-btn modal-prev-btn" onclick="prevVideo()">&#8249;</button>
+
+            <div class="video-modal-content" id="modalSwipeArea">
+                <div class="modal-top-bar">
+                    <div class="modal-video-title">
+                        <span>OTTINGER</span> | <span id="modalVideoName">ВИДЕО #01</span>
+                    </div>
+                    <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+                </div>
+
+                <div class="modal-swipe-hint" id="modalSwipeHint">👈 Свайпайте для переключения 👉</div>
+
+                <div id="videoError" class="video-error-box">
+                    <h5>Ошибка загрузки</h5>
+                    <p id="videoErrorMsg">Файл ещё не загружен на сервер.</p>
+                    <a id="videoDirectLink" href="#" target="_blank">Открыть файл напрямую ↗</a>
+                </div>
+
+                <video id="modalPlayer" controls playsinline webkit-playsinline preload="auto">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+
+            <button class="modal-nav-btn modal-next-btn" onclick="nextVideo()">&#8250;</button>
+        </div>
+    </div>
 
     <!-- БЛОК 2: ИННОВАЦИОННАЯ СИСТЕМА (4 БАЗОВЫХ МАТЕРИАЛА) -->
     <section class="products-section" id="system">
@@ -2182,54 +2209,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 7: АВТО-ОБНАРУЖЕНИЕ ВИДЕО (КАРУСЕЛЬ) -->
-    <section class="video-section" id="video-gallery">
-        <div class="section-container">
-            <span class="section-tag">Видео-доказательства</span>
-            <h2 class="section-title text-center">Система OTTINGER в действии: <span class="accent-color">Краш-тесты и практика мастеров</span></h2>
-            
-            <div class="video-carousel-wrapper">
-                <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
-
-                <div class="video-carousel" id="videoCarousel"></div>
-
-                <button class="carousel-arrow arrow-right" onclick="scrollCarousel(1)">&#8250;</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- МОДАЛЬНЫЙ СТОРИС-ПЛЕЕР ДЛЯ ВИДЕО -->
-    <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
-        <div class="video-modal-wrapper" onclick="event.stopPropagation()">
-            
-            <button class="modal-nav-btn modal-prev-btn" onclick="prevVideo()">&#8249;</button>
-
-            <div class="video-modal-content" id="modalSwipeArea">
-                <div class="modal-top-bar">
-                    <div class="modal-video-title">
-                        <span>OTTINGER</span> | <span id="modalVideoName">ВИДЕО #01</span>
-                    </div>
-                    <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
-                </div>
-
-                <div class="modal-swipe-hint" id="modalSwipeHint">👈 Свайпайте для переключения 👉</div>
-
-                <div id="videoError" class="video-error-box">
-                    <h5>Ошибка загрузки</h5>
-                    <p id="videoErrorMsg">Файл ещё не загружен на сервер.</p>
-                    <a id="videoDirectLink" href="#" target="_blank">Открыть файл напрямую ↗</a>
-                </div>
-
-                <video id="modalPlayer" controls playsinline webkit-playsinline preload="auto">
-                    Ваш браузер не поддерживает видео.
-                </video>
-            </div>
-
-            <button class="modal-nav-btn modal-next-btn" onclick="nextVideo()">&#8250;</button>
-        </div>
-    </div>
-
-    <!-- БЛОК 8: ЛАЙФХАК ПО ШЛИФОВКЕ -->
+    <!-- БЛОК 7: ЛАЙФХАК ПО ШЛИФОВКЕ -->
     <section class="myth-section">
         <div class="section-container">
             <div class="myth-box">
@@ -2249,7 +2229,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 9: РОССИЙСКОЕ ПРОИЗВОДСТВО -->
+    <!-- БЛОК 8: РОССИЙСКОЕ ПРОИЗВОДСТВО -->
     <section class="factory-section">
         <div class="section-container">
             <span class="section-tag">Надежность и доступность</span>
@@ -2257,7 +2237,7 @@
             
             <div class="factory-grid">
                 <div class="factory-card">
-                    <h3>Завод в г. Ижевск</h3>
+                    <h3>Заводы в г. Подольск и г. Ижевск</h3>
                     <p>Все краски, грунты и шпатлевки OTTINGER производятся на собственных заводах в РФ. Никаких санкционных рисков и зависимости от импорта.</p>
                 </div>
 
@@ -2274,7 +2254,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 10: ЦЕНООБРАЗОВАНИЕ И ЭКОНОМИКА -->
+    <!-- БЛОК 9: ЦЕНООБРАЗОВАНИЕ И ЭКОНОМИКА -->
     <section class="metrics-section">
         <div class="section-container">
             <span class="section-tag">Экономика пирога</span>
@@ -2299,7 +2279,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 11: ПРИМЕРЫ РАБОТ (С МИКРО-ЗУМОМ И ПЕРЕМЕЩЕНИЕМ ПАЛЬЦЕМ) -->
+    <!-- БЛОК 10: ПРИМЕРЫ РАБОТ (С МИКРО-ЗУМОМ И ПЕРЕМЕЩЕНИЕМ ПАЛЬЦЕМ) -->
     <section class="cases-section" id="cases">
         <div class="section-container">
             <span class="section-tag">Галерея проектов</span>
@@ -2421,10 +2401,8 @@
                     <button class="photo-close-btn" onclick="closePhotoModal()">&times;</button>
                 </div>
 
-                <!-- Изображение с микро-зумом -->
                 <img src="" id="photoModalImg" class="photo-modal-img" alt="Увеличенное фото объекта">
 
-                <!-- Панель управления зумом -->
                 <div class="photo-zoom-controls">
                     <button class="zoom-btn" onclick="zoomIn(event)">＋</button>
                     <button class="zoom-btn" onclick="zoomOut(event)">－</button>
@@ -2437,7 +2415,7 @@
         </div>
     </div>
 
-    <!-- БЛОК 12: ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ (workshop.jpg) -->
+    <!-- БЛОК 11: ПРИГЛАШЕНИЕ В МАЛЯРНЫЙ ЦЕХ (workshop.jpg) -->
     <section class="workshop-section" id="workshop">
         <div class="section-container">
             <div class="workshop-box">
@@ -2469,7 +2447,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 13: ОТЗЫВЫ -->
+    <!-- БЛОК 12: ОТЗЫВЫ -->
     <section class="reviews-section" id="reviews">
         <div class="section-container">
             <span class="section-tag">Сообщество профессионалов</span>
@@ -2532,7 +2510,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 14: CTA -->
+    <!-- БЛОК 13: CTA -->
     <section class="cta-section">
         <div class="cta-box">
             <span class="section-tag">Практика на объекте</span>
@@ -2542,7 +2520,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 15: FOOTER -->
+    <!-- БЛОК 14: FOOTER -->
     <footer id="contacts">
         <div class="footer-container">
             <div class="footer-info">
@@ -2594,7 +2572,6 @@
         const photoCounter = document.getElementById('photoCounter');
         const photoName = document.getElementById('photoName');
 
-        // Переменные зума и перемещения
         let scale = 1;
         let panX = 0, panY = 0;
         let startX = 0, startY = 0;
@@ -2678,19 +2655,16 @@
             document.body.classList.remove('modal-open');
         }
 
-        // ЖЕСТЫ ЗУМА И ПЕРЕМЕЩЕНИЯ (TOUCH PINCH & PAN)
         const photoSwipeArea = document.getElementById('photoSwipeArea');
 
         if (photoSwipeArea) {
             photoSwipeArea.addEventListener('touchstart', (e) => {
                 if (e.touches.length === 2) {
-                    // Щипок двумя пальцами
                     initialDistance = Math.hypot(
                         e.touches[0].clientX - e.touches[1].clientX,
                         e.touches[0].clientY - e.touches[1].clientY
                     );
                 } else if (e.touches.length === 1) {
-                    // Проверка двойного тапа
                     const now = Date.now();
                     if (now - lastTap < 300) {
                         if (scale > 1) {
@@ -2721,7 +2695,6 @@
                     updatePhotoTransform(false);
                 } else if (e.touches.length === 1 && isPanning) {
                     if (scale > 1) {
-                        // Перемещение в приближенном состоянии
                         e.preventDefault();
                         panX = e.touches[0].clientX - startX;
                         panY = e.touches[0].clientY - startY;
@@ -2735,7 +2708,6 @@
                 if (scale < 1) {
                     resetZoom();
                 } else if (scale === 1 && e.changedTouches.length === 1) {
-                    // Свайп между фото только если нет зума
                     const deltaX = e.changedTouches[0].clientX - (startX + panX);
                     if (deltaX < -45) nextPhoto();
                     if (deltaX > 45) prevPhoto();
@@ -2876,7 +2848,6 @@
             errorBox.style.display = 'none';
         }
 
-        // Управление клавиатурой
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeVideoModal();
@@ -2893,7 +2864,6 @@
             }
         });
 
-        // Свайпы для видео
         const swipeArea = document.getElementById('modalSwipeArea');
         let touchStartX = 0;
         let touchEndX = 0;
