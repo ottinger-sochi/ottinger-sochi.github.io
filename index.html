@@ -7,11 +7,11 @@
     <title>OTTINGER Sochi — Профессиональные отделочные материалы</title>
     <meta name="description" content="Инновационная полимерная система отделки стен с 10-микронным фиброволокном. Сокращает малярный пирог до 3 слоев без стеклохолста. Склад и малярный цех в Сочи.">
     
-    <!-- МЕТАТЕГИ ДЛЯ ПРЕВЬЮ -->
+    <!-- МЕТАТЕГИ ДЛЯ ПРЕВЬЮ В TELEGRAM, WHATSAPP, VK -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ottinger-sochi.github.io/">
     <meta property="og:title" content="OTTINGER Sochi — Инновационная полимерная система отделки">
-    <meta property="og:description" content="Малярные работы без брака и стеклохолста с 10-микронной микрофиброй. Сокращает малярный пирог до 3 слоев, исключает трещины и сколы. Склад и цех в Сочи.">
+    <meta property="og:description" content="Малярный пирог из 3 слоев без стеклохолста. Сдавайте объекты в 3 раза быстрее и зарабатывайте больше с гарантией 0% на брак. Склад и цех в Сочи.">
     <meta property="og:image" content="https://ottinger-sochi.github.io/preview.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
@@ -20,7 +20,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="OTTINGER Sochi — Инновационная полимерная система отделки">
-    <meta name="twitter:description" content="Малярные работы без брака и стеклохолста с 10-микронной микрофиброй. Сокращает малярный пирог до 3 слоев, исключает трещины и сколы.">
+    <meta name="twitter:description" content="Малярный пирог из 3 слоев без стеклохолста. Сдавайте объекты в 3 раза быстрее и зарабатывайте больше с гарантией 0% на брак.">
     <meta name="twitter:image" content="https://ottinger-sochi.github.io/preview.png">
 
     <!-- Подключение фирменного шрифта Montserrat -->
@@ -258,7 +258,7 @@
             border-radius: 2px;
         }
 
-        /* БОКОВАЯ ШТОРКА (МОБИЛЬНАЯ) */
+        /* БОКОВАЯ ШТОРКА */
         .mobile-drawer-backdrop {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -448,7 +448,7 @@
             transform: scale(0.98);
         }
 
-        /* БЛОК 1: HERO (ЛАКОНИЧНЫЙ, ЧИСТЫЙ ЭКРАН) */
+        /* БЛОК 1: HERO */
         .hero {
             display: flex;
             flex-direction: column;
@@ -459,13 +459,13 @@
             margin: 0 auto;
         }
         h1 {
-            font-size: 1.75rem;
+            font-size: 1.85rem;
             line-height: 1.25;
             margin-bottom: 20px;
             font-weight: 900;
             color: #111111;
             text-transform: uppercase;
-            max-width: 900px;
+            max-width: 960px;
             letter-spacing: -0.5px;
         }
         
@@ -474,7 +474,7 @@
             position: relative;
             width: 100%;
             max-width: 1100px;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 22px auto;
         }
         .video-carousel {
             display: flex;
@@ -630,18 +630,19 @@
         .arrow-left { left: -22px; }
         .arrow-right { right: -22px; }
 
-        /* Лаконичный подзаголовок (в 1-2 строки, легкий для глаз) */
+        /* Увеличенный подзаголовок с точными акцентами */
         .hero-subhead {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #555555;
-            max-width: 780px;
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: #444444;
+            max-width: 890px;
             margin: 0 auto 25px auto;
-            line-height: 1.5;
+            line-height: 1.55;
         }
-        .hero-subhead strong {
-            color: #111111;
-            font-weight: 800;
+        .hero-subhead .highlight {
+            color: #ff5722;
+            font-weight: 900;
+            text-transform: uppercase;
         }
 
         /* БЛОК 2: ИННОВАЦИОННАЯ СИСТЕМА (4 МАТЕРИАЛА) */
@@ -1302,7 +1303,7 @@
         }
         .metric-label strong { color: #111111; }
 
-        /* БЛОК 10: ПРИМЕРЫ РАБОТ (С МИКРО-ЗУМОМ И ПЕРЕМЕЩЕНИЕМ) */
+        /* БЛОК 10: ПРИМЕРЫ РАБОТ (С МИКРО-ЗУМОМ) */
         .cases-section {
             background-color: #ffffff;
             padding: 80px 20px;
@@ -1749,7 +1750,7 @@
             .burger-btn { display: none; }
             .header-container { padding: 14px 30px; }
             h1 { font-size: 2.5rem; }
-            .hero-subhead { font-size: 1.1rem; }
+            .hero-subhead { font-size: 1.2rem; }
             
             .product-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
             .catalog-callout { flex-direction: row; justify-content: space-between; align-items: center; }
@@ -1795,6 +1796,7 @@
             .phone-text { display: none; }
             .phone-icon-btn { display: flex; }
             h1 { font-size: 1.45rem; }
+            .hero-subhead { font-size: 0.98rem; }
         }
         @media (min-width: 577px) {
             .phone-icon-btn { display: none; }
@@ -1917,11 +1919,11 @@
         </div>
     </aside>
 
-    <!-- БЛОК 1: HERO (ЛАКОНИЧНЫЙ, ЧЕТКИЙ ЭКРАН) -->
+    <!-- БЛОК 1: HERO (С ПЕРЕРАБОТАННЫМ ЗАГОЛОВКОМ И ПОДЗАГОЛОВКОМ) -->
     <main class="hero" id="top">
         <h1>
-            СДАВАЙТЕ ОБЪЕКТЫ <span class="accent-color">В 3 РАЗА БЫСТРЕЕ</span> <br>
-            БЕЗ СТЕКЛОХОЛСТА И БРАКА
+            МАЛЯРНЫЙ ПИРОГ <span class="accent-color">ИЗ 3 СЛОЕВ</span> <br>
+            БЕЗ СТЕКЛОХОЛСТА И ПЕРЕДЕЛОК
         </h1>
 
         <!-- ВИДЕОКАРУСЕЛЬ В ПЕРВОМ БЛОКЕ -->
@@ -1932,7 +1934,7 @@
         </div>
 
         <p class="hero-subhead">
-            Полимерная система с микрофиброй: <strong>3 монолитных слоя</strong> вместо 15 классических операций.
+            Полимерная система с микрофиброй: сдавайте объекты <span class="highlight">В 3 РАЗА БЫСТРЕЕ</span>, <span class="highlight">ЗАРАБАТЫВАЙТЕ БОЛЬШЕ</span> и сведите затраты к <span class="highlight">0% НА БРАК</span>.
         </p>
 
         <a href="#system" class="btn btn-primary">Изучить систему ↓</a>
@@ -2278,7 +2280,7 @@
         </div>
     </section>
 
-    <!-- БЛОК 10: ПРИМЕРЫ РАБОТ (С МИКРО-ЗУМОМ) -->
+    <!-- БЛОК 10: ПРИМЕРЫ РАБОТ (С МИКРО-ЗУМОМ И ПЕРЕМЕЩЕНИЕМ) -->
     <section class="cases-section" id="cases">
         <div class="section-container">
             <span class="section-tag">Галерея проектов</span>
