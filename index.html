@@ -2206,10 +2206,100 @@
             БЕЗ СТЕКЛОХОЛСТА И ПЕРЕДЕЛОК
         </h1>
 
-        <!-- ВИДЕОКАРУСЕЛЬ В ПЕРВОМ БЛОКЕ -->
+        <!-- ВИДЕОКАРУСЕЛЬ В ПЕРВОМ БЛОКЕ (ГАРАНТИРОВАННЫЙ ВЫВОД ВСЕХ ВИДЕО) -->
         <div class="hero-video-wrapper">
             <button class="carousel-arrow arrow-left" onclick="scrollCarousel(-1)">&#8249;</button>
-            <div class="video-carousel" id="videoCarousel"></div>
+            <div class="video-carousel" id="videoCarousel">
+                
+                <!-- Видео 01 (Хит) -->
+                <div class="video-card" onclick="openVideoModal(0)">
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video1.mp4#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row">
+                        <span class="video-badge badge-hit">ВИДЕО #01</span>
+                    </div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                </div>
+
+                <!-- Видео 02 -->
+                <div class="video-card" onclick="openVideoModal(1)">
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video2.mp4#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row">
+                        <span class="video-badge">ВИДЕО #02</span>
+                    </div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                </div>
+
+                <!-- Видео 03 -->
+                <div class="video-card" onclick="openVideoModal(2)">
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video3.mp4#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row">
+                        <span class="video-badge">ВИДЕО #03</span>
+                    </div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                </div>
+
+                <!-- Видео 04 -->
+                <div class="video-card" onclick="openVideoModal(3)">
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video4.mp4#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row">
+                        <span class="video-badge">ВИДЕО #04</span>
+                    </div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                </div>
+
+                <!-- Видео 05 -->
+                <div class="video-card" onclick="openVideoModal(4)">
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video5.mp4#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row">
+                        <span class="video-badge">ВИДЕО #05</span>
+                    </div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                </div>
+
+                <!-- Видео 06 -->
+                <div class="video-card" onclick="openVideoModal(5)">
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video6.mp4#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row">
+                        <span class="video-badge">ВИДЕО #06</span>
+                    </div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                </div>
+
+                <!-- Видео 07 -->
+                <div class="video-card" onclick="openVideoModal(6)">
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video7.mp4#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row">
+                        <span class="video-badge">ВИДЕО #07</span>
+                    </div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                </div>
+
+                <!-- Видео 08 -->
+                <div class="video-card" onclick="openVideoModal(7)">
+                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="video8.mp4#t=0.5"></video>
+                    <div class="video-card-overlay"></div>
+                    <div class="video-top-row">
+                        <span class="video-badge">ВИДЕО #08</span>
+                    </div>
+                    <div class="video-play-icon">▶</div>
+                    <div class="video-bottom-label">OTTINGER TEST</div>
+                </div>
+
+            </div>
             <button class="carousel-arrow arrow-right" onclick="scrollCarousel(1)">&#8250;</button>
         </div>
 
@@ -2720,7 +2810,7 @@
     <!-- ЛОГИЧНЫЙ БЛОК: МАЛЯРНЫЕ РАБОТЫ ПОД КЛЮЧ (ПРЕМИАЛЬНЫЙ СТИЛЬ БЕЗ ЭМОДЗИ) -->
     <section class="services-section" id="services">
         <div class="section-container">
-            <span class="section-tag"></span>
+            <span class="section-tag">Сервис от производителя</span>
             <h2 class="section-title text-center">Хотите такой же результат? <br><span class="accent-color">Малярные работы под ключ</span> в Сочи</h2>
             
             <div class="services-grid">
@@ -3170,64 +3260,20 @@
         }
 
         // ==========================================
-        // АВТО-ОБНАРУЖЕНИЕ И ПЛЕЕР ВИДЕО
+        // ПЛЕЕР ДЛЯ СТОРИС-ВИДЕО
         // ==========================================
-        let availableVideos = [];
+        const videoItems = [
+            { src: 'video1.mp4', name: 'ВИДЕО #01' },
+            { src: 'video2.mp4', name: 'ВИДЕО #02' },
+            { src: 'video3.mp4', name: 'ВИДЕО #03' },
+            { src: 'video4.mp4', name: 'ВИДЕО #04' },
+            { src: 'video5.mp4', name: 'ВИДЕО #05' },
+            { src: 'video6.mp4', name: 'ВИДЕО #06' },
+            { src: 'video7.mp4', name: 'ВИДЕО #07' },
+            { src: 'video8.mp4', name: 'ВИДЕО #08' }
+        ];
+
         let currentVideoIndex = 0;
-
-        async function autoDiscoverVideos() {
-            const potentialList = [];
-            for (let i = 1; i <= 16; i++) {
-                potentialList.push({
-                    src: `video${i}.mp4`,
-                    name: `ВИДЕО #${i.toString().padStart(2, '0')}`
-                });
-            }
-
-            const checks = await Promise.all(potentialList.map(async (vid) => {
-                try {
-                    const res = await fetch(vid.src, { method: 'HEAD' });
-                    return res.ok ? vid : null;
-                } catch (e) {
-                    return null;
-                }
-            }));
-
-            availableVideos = checks.filter(v => v !== null);
-
-            if (availableVideos.length === 0) {
-                availableVideos = [{ src: 'video1.mp4', name: 'ВИДЕО #01' }];
-            }
-
-            renderVideoCarousel();
-        }
-
-        function renderVideoCarousel() {
-            const carousel = document.getElementById('videoCarousel');
-            if (!carousel) return;
-            carousel.innerHTML = '';
-
-            availableVideos.forEach((vid, index) => {
-                const card = document.createElement('div');
-                card.className = 'video-card';
-                card.onclick = () => openVideoModal(index);
-                
-                const badgeClass = (index === 0) ? 'badge-hit' : '';
-
-                card.innerHTML = `
-                    <video class="video-card-thumb" preload="metadata" muted playsinline webkit-playsinline src="${vid.src}#t=0.5"></video>
-                    <div class="video-card-overlay"></div>
-                    <div class="video-top-row">
-                        <span class="video-badge ${badgeClass}">${vid.name}</span>
-                    </div>
-                    <div class="video-play-icon">▶</div>
-                    <div class="video-bottom-label">OTTINGER TEST</div>
-                `;
-                carousel.appendChild(card);
-            });
-        }
-
-        autoDiscoverVideos();
 
         function scrollCarousel(direction) {
             const carousel = document.getElementById('videoCarousel');
@@ -3250,9 +3296,9 @@
         }
 
         function loadVideo(index) {
-            if (availableVideos.length === 0) return;
+            if (videoItems.length === 0) return;
             currentVideoIndex = index;
-            const videoData = availableVideos[currentVideoIndex];
+            const videoData = videoItems[currentVideoIndex];
             
             errorBox.style.display = 'none';
             player.style.display = 'block';
@@ -3281,14 +3327,12 @@
         }
 
         function nextVideo() {
-            if (availableVideos.length <= 1) return;
-            currentVideoIndex = (currentVideoIndex + 1) % availableVideos.length;
+            currentVideoIndex = (currentVideoIndex + 1) % videoItems.length;
             loadVideo(currentVideoIndex);
         }
 
         function prevVideo() {
-            if (availableVideos.length <= 1) return;
-            currentVideoIndex = (currentVideoIndex - 1 + availableVideos.length) % availableVideos.length;
+            currentVideoIndex = (currentVideoIndex - 1 + videoItems.length) % videoItems.length;
             loadVideo(currentVideoIndex);
         }
 
@@ -3332,7 +3376,7 @@
             swipeArea.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
                 handleSwipe();
-            }
+            }, { passive: true });
         }
 
         function handleSwipe() {
